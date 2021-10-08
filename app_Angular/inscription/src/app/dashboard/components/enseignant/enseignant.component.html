@@ -1,0 +1,138 @@
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+
+          <!-- form inscrit-->
+          <div class="card rounded-0">
+            <div class="card-header" style="background-color: rgb(45,153,194);">
+              <h3 class="mb-0 text-white">Inscription </h3>
+            </div>
+            <div class="card-body">
+              <form class="form"  #inscriptionForm="ngForm" name="inscriptionForm">
+                <!-- Bloc 1               -->
+                <div class="row">
+                  <div class="col-md-6">
+
+                    <div class="form-group">
+                      <label for="">Nom</label>
+                      <input  #nomControl="ngModel" ngModel required
+                              type="text" class="form-control form-control-lg rounded-0" name="nom"  >
+                    </div>
+                    <div
+                      *ngIf="!nomControl.valid&& nomControl.touched"
+                      class="alert alert-danger">
+                      Le nom est obligatoire
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">prenom</label>
+                      <input #prenomControl="ngModel" ngModel
+                             type="text" class="form-control form-control-lg rounded-0" name="prenom"  required>
+                    </div>
+                    <div
+                      *ngIf="!prenomControl.valid&& prenomControl.touched"
+                      class="alert alert-danger">
+                      Le prenom est obligatoire
+                    </div>
+                  </div>
+                </div>
+                <!-- Bloc 2              -->
+                <div class="row">
+                  <div class="col-md-6">
+
+                    <div class="form-group">
+                      <label for="">Date de naissance</label>
+                      <input #date_naissanceControl="ngModel" ngModel
+                             type="date" class="form-control form-control-lg rounded-0" name="date_naissance"  required="">
+                    </div>
+                    <div
+                      *ngIf="!date_naissanceControl.valid&& date_naissanceControl.touched"
+                      class="alert alert-danger">
+                      La date de naissance et obligatoire
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Sex</label>
+                      <div class="form-check">
+                        <input  #sexControl="ngModel" ngModel value="Masculin"
+                                class="form-check-input" type="radio" name="sex" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          masculin
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input  #sexControl="ngModel" ngModel
+                                class="form-check-input" type="radio" value="feminin" name="sex" id="flexRadioDefault2" >
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          feminin
+                        </label>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Bloc 3            -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Email</label>
+                      <input  #emailControl="ngModel" ngModel
+                              type="email" class="form-control form-control-lg rounded-0" name="email"  required>
+                    </div>
+                    <div
+                      *ngIf="!emailControl.valid&& emailControl.touched"
+                      class="alert alert-danger">
+                      L 'email est obligatoire
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="">Numero de télèphone</label>
+                      <input #num_telControl="ngModel" ngModel
+                             type="number" class="form-control form-control-lg rounded-0" name="num_tel"  required>
+                    </div>
+                    <div
+                      *ngIf="!num_telControl.valid&& num_telControl.touched"
+                      class="alert alert-danger">
+                      Le numéro du télèphone est obligatoire
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Sujet</label>
+                  <select
+                    #sujetControl="ngModel" ngModel required name="sujet"
+                    class="form-select" aria-label="Default select example">
+                    <option value="Licence fondamentale">Application web</option>
+                    <option value="Préparatoire">Application Mobiles</option>
+                  </select>
+                </div>
+                <div
+                  *ngIf="!sujetControl.valid&& sujetControl.touched"
+                  class="alert alert-danger">
+                  Sélectionner un sujet
+                </div>
+                <br>
+                <div class="form-group">
+                  <button [disabled]="inscriptionForm.invalid"
+                          (click)="inscription(inscriptionForm)"
+                          type="submit" class="btn btn-primary align-content-around" id="btnLogin">Envoyer</button>
+                </div>
+              </form>
+            </div>
+            <!--/card-block-->
+          </div>
+          <!-- /form card login -->
+        </div>
+      </div>
+      <!--/row-->
+    </div>
+    <!--/col-->
+  </div>
+  <!--/row-->
+</div>

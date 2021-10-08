@@ -1,0 +1,35 @@
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav mode="side" opened="true" style="background-color: rgb(45,153,194);">
+    <mat-nav-list>
+
+      <mat-list-item>
+        <mat-icon style="color: rgb(255,255,255);" mat-list-icon class="chevron-button sidenav-button" (click)="isExpanded = !isExpanded" [ngClass]="{'rotated': isExpanded}">chevron_right</mat-icon>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'dashboard'">
+        <mat-icon style="color: rgb(255,255,255);" mat-list-icon >home</mat-icon>
+        <span *ngIf="isExpanded" class="text-white">Dashboard</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'etudiant'">
+        <mat-icon style="color: rgb(255,255,255);" mat-list-icon>perm_identity
+        </mat-icon>
+        <span *ngIf="isExpanded" class="text-white">Etudiant</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'enseignant'">
+        <mat-icon mat-list-icon style="color: rgb(255,255,255);">supervisor_account</mat-icon>
+        <span *ngIf="isExpanded" class="text-white">Enseignant</span>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="content"  >
+    <mat-toolbar style="background-color: rgb(45,153,194);">
+      <h4 class="text-white">Bienvenue</h4>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>
